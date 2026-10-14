@@ -1,4 +1,4 @@
-# Smart Greenhouse — ESP-IDF
+# Smart Greenhouse (Arduino)
 
 This is the first version of my ESP32-S3 smart greenhouse project. I developed it with Arduino and C++ and keep it as a C++ code sample and an earlier stage of the project.
 
@@ -12,7 +12,7 @@ This is the first version of my ESP32-S3 smart greenhouse project. I developed i
 
 ## Architecture
 
-The firmware uses a "millis()"-based superloop. Sensors, controllers, actuators, Wi-Fi, and the indicator are organized in separate code sections within one source file.
+The firmware uses a `millis()`-based superloop. Sensors, controllers, actuators, Wi-Fi, and the indicator are organized in separate code sections within one source file.
 
 Each loop checks whether an operation needs an update. This keeps the code compact and easy to follow, but all application logic shares the same loop. A slow operation can delay other work, and events are handled through repeated checks.
 
@@ -21,31 +21,27 @@ As the project grew, I needed a better way to handle independent operations and 
 ## Hardware
 
 - ESP32-S3 development board
-- DHT22 — temperature and humidity
-- BH1750 — ambient light
-- MQ135 — gas level
+- DHT22 - temperature and humidity
+- BH1750 - ambient light
+- MQ135 - gas level
 - Capacitive soil moisture sensor
 - MOSFET-driven fan, grow light, and water pump
 - RGB indicator LED
 
 ## Build
 
-The project uses PlatformIO, the Arduino framework, and the pioarduino Espressif platform.
+The project uses PlatformIO with the Arduino framework and the pioarduino Espressif platform for Arduino-ESP32 support.
 
-1. Install VS Code and PlatformIO.
-2. Open the project and select the "esp32-s3-devkitc-1" environment.
-3. Set "YOUR_WIFI_SSID" and "YOUR_WIFI_PASSWORD" in the configuration section of "src/main.cpp".
-4. Build and upload the firmware.
+1. Set `YOUR_WIFI_SSID` and `YOUR_WIFI_PASSWORD` in the configuration section of `src/main.cpp`.
+2. Build and upload the firmware.
 
 CLI commands:
-
+```Bash
 pio run
 pio run -t upload
-
-The project uses pioarduino to access the Arduino-ESP32 platform version specified by its PlatformIO configuration.
-
+```
 ## Related Project
 
-See "SmartGreenhouse-ESP-IDF" (https://github.com/AminRazm/SmartGreenhouse-ESP-IDF) for the rewritten firmware.
+See [SmartGreenhouse-ESP-IDF](https://github.com/AminRazm/SmartGreenhouse-ESP-IDF) for the rewritten firmware.
 
 The two repositories show my work with both C++ and C, and how the firmware architecture evolved as the project grew.
