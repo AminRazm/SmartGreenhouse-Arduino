@@ -30,14 +30,14 @@ As the project grew, I needed a better way to handle independent operations and 
 
 ## Build
 
-The project uses PlatformIO with the Arduino framework and the pioarduino Espressif platform for Arduino-ESP32 support.
+The project uses PlatformIO with the Arduino framework and the [pioarduino](https://github.com/pioarduino/platform-espressif32) platform for ESP32 development.
 
-1. Set `YOUR_WIFI_SSID` and `YOUR_WIFI_PASSWORD` in the configuration section of `src/main.cpp`.
-2. Build and upload the firmware.
+1. Install [Visual Studio Code](https://code.visualstudio.com/) and the [PlatformIO IDE extension](https://platformio.org/install/ide?install=vscode).
+2. Set `YOUR_WIFI_SSID` and `YOUR_WIFI_PASSWORD` in the configuration section of `src/main.cpp`.
+3. Build and upload the firmware.
 
-CLI commands:
-```Bash
-pio run
+**CLI command:**
+```bash
 pio run -t upload
 ```
 ## Related Project
